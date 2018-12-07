@@ -1,0 +1,11 @@
+;ds
+push int8(8)                 ;int
+push int32(32)                     ;;dfjh
+push double(44.4)        ;65;
+push float(4.4);       ddd
+add
+mul
+mod
+sub
+dump
+;;

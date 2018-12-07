@@ -1,0 +1,5 @@
+push int8(8)
+push int16(16)
+add
+print
+;;
