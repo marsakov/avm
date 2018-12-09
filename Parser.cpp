@@ -8,31 +8,31 @@ Parser::Parser() {
 Parser::~Parser() { }
 
 eOperandType 	Parser::getType( void ) {
-	if (std::regex_match(_line, std::regex("int8\\([-]?[0-9]+\\).*"))) {
-		_line = regex_replace(_line, std::regex("^int8\\("), "");
-		return (Int8);
+
+	std::regex arrayMatch[5] = {std::regex("int8\\([-]?[0-9]+\\).*"),
+								 std::regex("int16\\([-]?[0-9]+\\).*"),
+								 std::regex("int32\\([-]?[0-9]+\\).*"),
+								std::regex("float\\([-]?[0-9]+.[0-9]+\\).*"),
+								std::regex("double\\([-]?[0-9]+.[0-9]+\\).*")
+	};
+
+	std::regex arrayReplace[5] = {std::regex("^int8\\("),
+								   std::regex("^int16\\("),
+								   std::regex("^int32\\("),
+								  std::regex("^float\\("),
+								  std::regex("^double\\(")
+	};
+
+	for (int i = 0; i < 5; i++) {
+		if ( std::regex_match(_line, arrayMatch[i] )){
+			_line = regex_replace(_line, arrayReplace[i], "");
+			return (eOperandType(i));
+		}
 	}
-	else if (std::regex_match(_line, std::regex("int16\\([-]?[0-9]+\\).*"))) {
-		_line = regex_replace(_line, std::regex("^int16\\("), "");
-		return (Int16);
-	}
-	else if (std::regex_match(_line, std::regex("int32\\([-]?[0-9]+\\).*"))) {
-		_line = regex_replace(_line, std::regex("^int32\\("), "");
-		return (Int32);
-	}
-	else if (std::regex_match(_line, std::regex("double\\([-]?[0-9]+.[0-9]+\\).*"))) {
-		_line = regex_replace(_line, std::regex("^double\\("), "");
-		return (Double);
-	}
-	else if (std::regex_match(_line, std::regex("float\\([-]?[0-9]+.[0-9]+\\).*"))) {
-		_line = regex_replace(_line, std::regex("^float\\("), "");
-		return (Float);
-	}
-	else
-	{
-		std::cout << "Error [ line " << _iter << " ] : Wrong argument" << std::endl;
-		exit(0);
-	}
+
+	std::cout << "Error [ line " << _iter << " ] : Wrong argument" << std::endl;
+	exit(0);
+
 }
 
 eCommandType 	Parser::getCommand( void ) {
@@ -63,63 +63,14 @@ eCommandType 	Parser::getCommand( void ) {
 								std::regex("^(exit)\\s*")
 	};
 
-	for (eCommandType i = push; i <= Exit; i++) {
+	for (int i = 0; i < 11; i++) {
 		if ( std::regex_match(_line, arrayMatch[i] )){
 			_line = regex_replace(_line, arrayReplace[i], "");
-			return (i);
+			return (eCommandType (i));
 		}
 	}
 	std::cout << "Error [ line " << _iter << " ] Unknown command'" << _line << "'" << std::endl;
 	exit(0);
-
-	// if ( std::regex_match(_line, std::regex("^push(\\s+).*")) ){
-	// 	_line = regex_replace(_line, std::regex("^(push)\\s+"), "");
-	// 	return (push);
-	// }
-	// else if ( std::regex_match(_line, std::regex("^(pop).*")) ) {
-	// 	_line = regex_replace(_line, std::regex("^(pop)\\s*"), "");
-	// 	return (pop);
-	// }
-	// else if ( std::regex_match(_line, std::regex("^(dump).*")) ) {
-	// 	_line = regex_replace(_line, std::regex("^(dump)\\s*"), "");
-	// 	return (dump);
-	// }
-	// else if ( std::regex_match(_line, std::regex("^(assert).*")) ) {
-	// 	_line = regex_replace(_line, std::regex("^(assert)\\s*"), "");
-	// 	return (assert);
-	// }
-	// else if ( std::regex_match(_line, std::regex("^(add).*")) ) {
-	// 	_line = regex_replace(_line, std::regex("^(add)\\s*"), "");
-	// 	return (add);
-	// }
-	// else if ( std::regex_match(_line, std::regex("^(sub).*")) ) {
-	// 	_line = regex_replace(_line, std::regex("^(sub)\\s*"), "");
-	// 	return (sub);
-	// }
-	// else if ( std::regex_match(_line, std::regex("^(mul).*")) ) {
-	// 	_line = regex_replace(_line, std::regex("^(mul)\\s*"), "");
-	// 	return (mul);
-	// }
-	// else if ( std::regex_match(_line, std::regex("^(div).*")) ) {
-	// 	_line = regex_replace(_line, std::regex("^(div)\\s*"), "");
-	// 	return (Div);
-	// }
-	// else if ( std::regex_match(_line, std::regex("^(mod).*")) ) {
-	// 	_line = regex_replace(_line, std::regex("^(mod)\\s*"), "");
-	// 	return (mod);
-	// }
-	// else if ( std::regex_match(_line, std::regex("^(print).*")) ) {
-	// 	_line = regex_replace(_line, std::regex("^(print)\\s*"), "");
-	// 	return (print);
-	// }
-	// else if ( std::regex_match(_line, std::regex("^(exit).*")) ) {
-	// 	_line = regex_replace(_line, std::regex("^(exit)\\s*"), "");
-	// 	return (Exit);
-	// }
-	// else {
-	// 	std::cout << "Error [ line " << _iter << " ] Unknown command'" << _line << "'" << std::endl;
-	// 	exit(0);
-	// }
 }
 
 void			Parser::pushFunc() {
@@ -146,7 +97,7 @@ void			Parser::assertFunc() {
 		exit(0);
 	}
 
-	if (operand->getType() != _array[_array.size() - 1]->getType() || operand != _array[_array.size() - 1]) {
+	if (operand->getType() != _array[_array.size() - 1]->getType() || operand->toString() != _array[_array.size() - 1]->toString()) {
 		std::cout << "Error [ line " << _iter << " ] : assert error" << std::endl;
 		exit(0);
 	}
@@ -218,8 +169,16 @@ void			Parser::parseLine() {
 	case mod:
 		mathOp(mod); break;
 	case print:
-		if (_array.size() > 0)
-			std::cout << _array[_array.size() - 1]->toString() << std::endl; break;
+		if (_array.size() == 0) {
+			std::cout << "Error [ line " << _iter << " ] : print empty stack" << std::endl;
+			exit(0);
+		}
+		else if (_array[_array.size() - 1]->getType() != Int8) {
+			std::cout << "Error [ line " << _iter << " ] : print empty stack" << std::endl;
+			exit(0);
+		}
+		else
+			std::cout << static_cast<char>(stoi(_array[_array.size() - 1]->toString())) << std::endl; break;
 	case Exit:
 		exit(0);
 	default:

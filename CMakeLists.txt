@@ -12,4 +12,4 @@ add_executable(avm
         main.cpp
         Operand.hpp
         Parser.cpp
-        Parser.hpp)
+        Parser.hpp Exception.cpp Exception.hpp)

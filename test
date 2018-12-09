@@ -1,8 +1,10 @@
 ;ds
-push int8(8)                 ;int
-push int32(32)                     ;;dfjh
+push int8(88)                 ;int
+print
+push int32(32)
 push double(44.4)        ;65;
 push float(4.4);       ddd
+assert float(4.4);
 add
 mul
 mod

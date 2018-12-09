@@ -50,19 +50,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /home/msakovych/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.46/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
+RM = /home/msakovych/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.46/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/msakovyc/avm
+CMAKE_SOURCE_DIR = /home/msakovych/avm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/msakovyc/avm/cmake-build-debug
+CMAKE_BINARY_DIR = /home/msakovych/avm/cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/avm.dir
@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /Users/msakovyc/avm/cmake-build-debug
 CMakeFiles/avm.dir/all:
 	$(MAKE) -f CMakeFiles/avm.dir/build.make CMakeFiles/avm.dir/depend
 	$(MAKE) -f CMakeFiles/avm.dir/build.make CMakeFiles/avm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/msakovyc/avm/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target avm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/msakovych/avm/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target avm"
 .PHONY : CMakeFiles/avm.dir/all
 
 # Include target in all.
@@ -81,9 +81,9 @@ all: CMakeFiles/avm.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/avm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/msakovyc/avm/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/msakovych/avm/cmake-build-debug/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/avm.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/msakovyc/avm/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/msakovych/avm/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/avm.dir/rule
 
 # Convenience name for target.

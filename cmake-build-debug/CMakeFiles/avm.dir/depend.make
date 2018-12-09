@@ -3,8 +3,12 @@
 
 CMakeFiles/avm.dir/Creator.cpp.o: ../Creator.cpp
 CMakeFiles/avm.dir/Creator.cpp.o: ../Creator.hpp
+CMakeFiles/avm.dir/Creator.cpp.o: ../Exception.hpp
 CMakeFiles/avm.dir/Creator.cpp.o: ../IOperand.h
 CMakeFiles/avm.dir/Creator.cpp.o: ../Operand.hpp
+
+CMakeFiles/avm.dir/Exception.cpp.o: ../Exception.cpp
+CMakeFiles/avm.dir/Exception.cpp.o: ../Exception.hpp
 
 CMakeFiles/avm.dir/Parser.cpp.o: ../Creator.hpp
 CMakeFiles/avm.dir/Parser.cpp.o: ../IOperand.h

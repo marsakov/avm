@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /home/msakovych/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.46/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
+RM = /home/msakovych/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.46/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/msakovyc/avm
+CMAKE_SOURCE_DIR = /home/msakovych/avm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/msakovyc/avm/cmake-build-debug
+CMAKE_BINARY_DIR = /home/msakovych/avm/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/msakovyc/avm/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/msakovych/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.46/bin/cmake/linux/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/msakovych/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.46/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/msakovyc/avm/cmake-build-debug/CMakeFiles /Users/msakovyc/avm/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/msakovych/avm/cmake-build-debug/CMakeFiles /home/msakovych/avm/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/msakovyc/avm/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/msakovych/avm/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,6 +150,33 @@ Creator.cpp.s:
 	$(MAKE) -f CMakeFiles/avm.dir/build.make CMakeFiles/avm.dir/Creator.cpp.s
 .PHONY : Creator.cpp.s
 
+Exception.o: Exception.cpp.o
+
+.PHONY : Exception.o
+
+# target to build an object file
+Exception.cpp.o:
+	$(MAKE) -f CMakeFiles/avm.dir/build.make CMakeFiles/avm.dir/Exception.cpp.o
+.PHONY : Exception.cpp.o
+
+Exception.i: Exception.cpp.i
+
+.PHONY : Exception.i
+
+# target to preprocess a source file
+Exception.cpp.i:
+	$(MAKE) -f CMakeFiles/avm.dir/build.make CMakeFiles/avm.dir/Exception.cpp.i
+.PHONY : Exception.cpp.i
+
+Exception.s: Exception.cpp.s
+
+.PHONY : Exception.s
+
+# target to generate assembly for a file
+Exception.cpp.s:
+	$(MAKE) -f CMakeFiles/avm.dir/build.make CMakeFiles/avm.dir/Exception.cpp.s
+.PHONY : Exception.cpp.s
+
 Parser.o: Parser.cpp.o
 
 .PHONY : Parser.o
@@ -216,6 +243,9 @@ help:
 	@echo "... Creator.o"
 	@echo "... Creator.i"
 	@echo "... Creator.s"
+	@echo "... Exception.o"
+	@echo "... Exception.i"
+	@echo "... Exception.s"
 	@echo "... Parser.o"
 	@echo "... Parser.i"
 	@echo "... Parser.s"

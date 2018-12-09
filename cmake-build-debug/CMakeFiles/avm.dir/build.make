@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /home/msakovych/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.46/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
+RM = /home/msakovych/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/182.3684.46/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/msakovyc/avm
+CMAKE_SOURCE_DIR = /home/msakovych/avm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/msakovyc/avm/cmake-build-debug
+CMAKE_BINARY_DIR = /home/msakovych/avm/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/avm.dir/depend.make
@@ -59,48 +59,62 @@ include CMakeFiles/avm.dir/flags.make
 
 CMakeFiles/avm.dir/Creator.cpp.o: CMakeFiles/avm.dir/flags.make
 CMakeFiles/avm.dir/Creator.cpp.o: ../Creator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/msakovyc/avm/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/avm.dir/Creator.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/avm.dir/Creator.cpp.o -c /Users/msakovyc/avm/Creator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/msakovych/avm/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/avm.dir/Creator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/avm.dir/Creator.cpp.o -c /home/msakovych/avm/Creator.cpp
 
 CMakeFiles/avm.dir/Creator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/avm.dir/Creator.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/msakovyc/avm/Creator.cpp > CMakeFiles/avm.dir/Creator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/msakovych/avm/Creator.cpp > CMakeFiles/avm.dir/Creator.cpp.i
 
 CMakeFiles/avm.dir/Creator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/avm.dir/Creator.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/msakovyc/avm/Creator.cpp -o CMakeFiles/avm.dir/Creator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/msakovych/avm/Creator.cpp -o CMakeFiles/avm.dir/Creator.cpp.s
 
 CMakeFiles/avm.dir/main.cpp.o: CMakeFiles/avm.dir/flags.make
 CMakeFiles/avm.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/msakovyc/avm/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/avm.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/avm.dir/main.cpp.o -c /Users/msakovyc/avm/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/msakovych/avm/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/avm.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/avm.dir/main.cpp.o -c /home/msakovych/avm/main.cpp
 
 CMakeFiles/avm.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/avm.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/msakovyc/avm/main.cpp > CMakeFiles/avm.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/msakovych/avm/main.cpp > CMakeFiles/avm.dir/main.cpp.i
 
 CMakeFiles/avm.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/avm.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/msakovyc/avm/main.cpp -o CMakeFiles/avm.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/msakovych/avm/main.cpp -o CMakeFiles/avm.dir/main.cpp.s
 
 CMakeFiles/avm.dir/Parser.cpp.o: CMakeFiles/avm.dir/flags.make
 CMakeFiles/avm.dir/Parser.cpp.o: ../Parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/msakovyc/avm/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/avm.dir/Parser.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/avm.dir/Parser.cpp.o -c /Users/msakovyc/avm/Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/msakovych/avm/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/avm.dir/Parser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/avm.dir/Parser.cpp.o -c /home/msakovych/avm/Parser.cpp
 
 CMakeFiles/avm.dir/Parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/avm.dir/Parser.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/msakovyc/avm/Parser.cpp > CMakeFiles/avm.dir/Parser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/msakovych/avm/Parser.cpp > CMakeFiles/avm.dir/Parser.cpp.i
 
 CMakeFiles/avm.dir/Parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/avm.dir/Parser.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/msakovyc/avm/Parser.cpp -o CMakeFiles/avm.dir/Parser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/msakovych/avm/Parser.cpp -o CMakeFiles/avm.dir/Parser.cpp.s
+
+CMakeFiles/avm.dir/Exception.cpp.o: CMakeFiles/avm.dir/flags.make
+CMakeFiles/avm.dir/Exception.cpp.o: ../Exception.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/msakovych/avm/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/avm.dir/Exception.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/avm.dir/Exception.cpp.o -c /home/msakovych/avm/Exception.cpp
+
+CMakeFiles/avm.dir/Exception.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/avm.dir/Exception.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/msakovych/avm/Exception.cpp > CMakeFiles/avm.dir/Exception.cpp.i
+
+CMakeFiles/avm.dir/Exception.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/avm.dir/Exception.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/msakovych/avm/Exception.cpp -o CMakeFiles/avm.dir/Exception.cpp.s
 
 # Object files for target avm
 avm_OBJECTS = \
 "CMakeFiles/avm.dir/Creator.cpp.o" \
 "CMakeFiles/avm.dir/main.cpp.o" \
-"CMakeFiles/avm.dir/Parser.cpp.o"
+"CMakeFiles/avm.dir/Parser.cpp.o" \
+"CMakeFiles/avm.dir/Exception.cpp.o"
 
 # External object files for target avm
 avm_EXTERNAL_OBJECTS =
@@ -108,9 +122,10 @@ avm_EXTERNAL_OBJECTS =
 avm: CMakeFiles/avm.dir/Creator.cpp.o
 avm: CMakeFiles/avm.dir/main.cpp.o
 avm: CMakeFiles/avm.dir/Parser.cpp.o
+avm: CMakeFiles/avm.dir/Exception.cpp.o
 avm: CMakeFiles/avm.dir/build.make
 avm: CMakeFiles/avm.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/msakovyc/avm/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable avm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/msakovych/avm/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable avm"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/avm.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +138,6 @@ CMakeFiles/avm.dir/clean:
 .PHONY : CMakeFiles/avm.dir/clean
 
 CMakeFiles/avm.dir/depend:
-	cd /Users/msakovyc/avm/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/msakovyc/avm /Users/msakovyc/avm /Users/msakovyc/avm/cmake-build-debug /Users/msakovyc/avm/cmake-build-debug /Users/msakovyc/avm/cmake-build-debug/CMakeFiles/avm.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/msakovych/avm/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/msakovych/avm /home/msakovych/avm /home/msakovych/avm/cmake-build-debug /home/msakovych/avm/cmake-build-debug /home/msakovych/avm/cmake-build-debug/CMakeFiles/avm.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/avm.dir/depend
 
