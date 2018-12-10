@@ -12,11 +12,13 @@ CMakeFiles/avm.dir/Exception.cpp.o
  /home/msakovych/avm/Exception.hpp
 CMakeFiles/avm.dir/Parser.cpp.o
  /home/msakovych/avm/Creator.hpp
+ /home/msakovych/avm/Exception.hpp
  /home/msakovych/avm/IOperand.h
  /home/msakovych/avm/Parser.cpp
  /home/msakovych/avm/Parser.hpp
 CMakeFiles/avm.dir/main.cpp.o
  /home/msakovych/avm/Creator.hpp
+ /home/msakovych/avm/Exception.hpp
  /home/msakovych/avm/IOperand.h
  /home/msakovych/avm/Operand.hpp
  /home/msakovych/avm/Parser.hpp

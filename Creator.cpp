@@ -1,6 +1,5 @@
 #include "Creator.hpp"
 #include "Operand.hpp"
-#include "Exception.hpp"
 
 Creator::Creator() { }
 

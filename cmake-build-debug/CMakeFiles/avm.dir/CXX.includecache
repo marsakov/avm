@@ -6,29 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/msakovych/avm/Creator.hpp
-IOperand.h
-/home/msakovych/avm/IOperand.h
-
-/home/msakovych/avm/IOperand.h
-string
--
-
-/home/msakovych/avm/Parser.cpp
-Parser.hpp
-/home/msakovych/avm/Parser.hpp
+/home/msakovych/avm/Exception.cpp
 iostream
 -
-sstream
--
+Exception.hpp
+/home/msakovych/avm/Exception.hpp
 
-/home/msakovych/avm/Parser.hpp
-IOperand.h
-/home/msakovych/avm/IOperand.h
-Creator.hpp
-/home/msakovych/avm/Creator.hpp
-regex
--
-vector
--
+/home/msakovych/avm/Exception.hpp
 

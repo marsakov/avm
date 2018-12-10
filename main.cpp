@@ -21,7 +21,7 @@ void	reading_code(std::string file_name) {
 	std::ifstream ifs(file_name);
 	Parser parser;
 
-	for (int i = 0; ifs.getline(line, 256) && std::string(line) != ";;"; i++)
+	for (int i = 1; ifs.getline(line, 256) && std::string(line) != ";;"; i++)
 	{
 		if (std::string(line) != "" && !std::regex_match(line, std::regex("\\s*;+.*")) ) {
 			parser.setLine(line);

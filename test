@@ -3,10 +3,9 @@ push int8(88)                 ;int
 print
 push int32(32)
 push double(44.4)        ;65;
-push float(4.4);       ddd
-assert float(4.4);
-add
-mul
+push float(4.4) ;       ddd
+push int8(0)
+push int8(6)
 mod
 sub
 dump

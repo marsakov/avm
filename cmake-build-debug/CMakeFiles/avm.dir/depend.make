@@ -11,11 +11,13 @@ CMakeFiles/avm.dir/Exception.cpp.o: ../Exception.cpp
 CMakeFiles/avm.dir/Exception.cpp.o: ../Exception.hpp
 
 CMakeFiles/avm.dir/Parser.cpp.o: ../Creator.hpp
+CMakeFiles/avm.dir/Parser.cpp.o: ../Exception.hpp
 CMakeFiles/avm.dir/Parser.cpp.o: ../IOperand.h
 CMakeFiles/avm.dir/Parser.cpp.o: ../Parser.cpp
 CMakeFiles/avm.dir/Parser.cpp.o: ../Parser.hpp
 
 CMakeFiles/avm.dir/main.cpp.o: ../Creator.hpp
+CMakeFiles/avm.dir/main.cpp.o: ../Exception.hpp
 CMakeFiles/avm.dir/main.cpp.o: ../IOperand.h
 CMakeFiles/avm.dir/main.cpp.o: ../Operand.hpp
 CMakeFiles/avm.dir/main.cpp.o: ../Parser.hpp

@@ -2,8 +2,11 @@
 
 #include "IOperand.h"
 #include "Creator.hpp"
+#include "Exception.hpp"
 #include <regex>
 #include <vector>
+#include <iostream>
+#include <sstream>
 
 class Parser {
 
@@ -11,6 +14,7 @@ class Parser {
 	std::string						_line;
 	int								_iter;
 	std::vector<const IOperand*>	_array;
+	std::string 					_msg;
 
 public:
 

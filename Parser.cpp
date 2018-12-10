@@ -1,6 +1,4 @@
 #include "Parser.hpp"
-#include <iostream>
-#include <sstream>
 
 Parser::Parser() {
 }
@@ -29,10 +27,8 @@ eOperandType 	Parser::getType( void ) {
 			return (eOperandType(i));
 		}
 	}
-
-	std::cout << "Error [ line " << _iter << " ] : Wrong argument" << std::endl;
-	exit(0);
-
+	_msg = "Error [ line " + std::to_string(_iter) + " ] : Wrong argument";
+	throw Exception(_msg.c_str());
 }
 
 eCommandType 	Parser::getCommand( void ) {
@@ -69,8 +65,8 @@ eCommandType 	Parser::getCommand( void ) {
 			return (eCommandType (i));
 		}
 	}
-	std::cout << "Error [ line " << _iter << " ] Unknown command'" << _line << "'" << std::endl;
-	exit(0);
+	_msg = "Error [ line " + std::to_string(_iter) + " ] : Unknown command'" + _line + "'";
+	throw Exception(_msg.c_str());
 }
 
 void			Parser::pushFunc() {
@@ -79,8 +75,8 @@ void			Parser::pushFunc() {
 	opType = getType();
 	_array.push_back(_creator.createOperand( regex_replace(_line, std::regex("\\).*"), ""), opType));
 	if (_line != "" && std::regex_match(_line, std::regex("\\)\\s*((?=;).*|\\s*)")) ) {
-		std::cout << "Error [ line " << _iter << " ] : Invalid symbols" << std::endl;
-		exit(0);
+		_msg = "Error [ line " + std::to_string(_iter) + " ] : Invalid symbols";
+		throw Exception(_msg.c_str());
 	}
 	_line = regex_replace(_line, std::regex("^\\)"), "");
 }
@@ -93,18 +89,18 @@ void			Parser::assertFunc() {
 	operand = _creator.createOperand( regex_replace(_line, std::regex("\\).*"), ""), opType);
 
 	if (_array.size() < 1) {
-		std::cout << "Error [ line " << _iter << " ] : assert on empty stack" << std::endl;
-		exit(0);
+		_msg = "Error [ line " + std::to_string(_iter) + " ] : assert on empty stack";
+		throw Exception(_msg.c_str());
 	}
 
 	if (operand->getType() != _array[_array.size() - 1]->getType() || operand->toString() != _array[_array.size() - 1]->toString()) {
-		std::cout << "Error [ line " << _iter << " ] : assert error" << std::endl;
-		exit(0);
+		_msg = "Error [ line " + std::to_string(_iter) + " ] : assert error";
+		throw Exception(_msg.c_str());
 	}
 
 	if (_line != "" && std::regex_match(_line, std::regex("\\)\\s*((?=;).*|\\s*)")) ) {
-		std::cout << "Error [ line " << _iter << " ] : Invalid symbols" << std::endl;
-		exit(0);
+		_msg = "Error [ line " + std::to_string(_iter) + " ] : Invalid symbols";
+		throw Exception(_msg.c_str());
 	}
 	_line = regex_replace(_line, std::regex("^\\)"), "");
 }
@@ -112,8 +108,8 @@ void			Parser::assertFunc() {
 void			Parser::mathOp(eCommandType cmdType) {
 
 	if (_array.size() < 2) {
-		std::cout << "Error [ line " << _iter << " ] : no enought arguments in stack for ' " << _line << " ' command" << std::endl;
-		exit(0);
+		_msg = "Error [ line " + std::to_string(_iter) + " ] : no enought arguments in stack for ' " + _line + "' command";
+		throw Exception(_msg.c_str());
 	}
 
 	switch (cmdType) {
@@ -127,13 +123,18 @@ void			Parser::mathOp(eCommandType cmdType) {
 		_array.push_back(_creator.createOperand(*(_array[_array.size() - 1]) *  *(_array[_array.size() - 2])) );
 		break;
 	case Div:
+	    if (stof(_array[_array.size() - 2]->toString()) == 0)
+            throw Exception("div by 0");
 		_array.push_back(_creator.createOperand(*(_array[_array.size() - 1]) / *(_array[_array.size() - 2])) );
 		break;
 	case mod:
+        if (stof(_array[_array.size() - 2]->toString()) == 0)
+            throw Exception("mod by 0");
 		_array.push_back(_creator.createOperand(*(_array[_array.size() - 1]) % *(_array[_array.size() - 2])) );
 		break;
 	default:
-		std::cout << "Error [ line " << _iter << " ] Unknown command'" << _line << "'" << std::endl;
+	    _msg = "Error [ line " + std::to_string(_iter) + " ] : Unknown command'" + _line + "'";
+	    throw Exception(_msg.c_str());
 	}
 }
 
@@ -146,8 +147,8 @@ void			Parser::parseLine() {
 		pushFunc(); break;
 	case pop:
 		if (_array.size() == 0) {
-			std::cout << "Error [ line " << _iter << " ] : pop on empty stack" << std::endl;
-			exit(0);
+			_msg = "Error [ line " + std::to_string(_iter) + " ] : pop on empty stack";
+			throw Exception(_msg.c_str());
 		}
 		else
 			_array.pop_back();
@@ -170,24 +171,24 @@ void			Parser::parseLine() {
 		mathOp(mod); break;
 	case print:
 		if (_array.size() == 0) {
-			std::cout << "Error [ line " << _iter << " ] : print empty stack" << std::endl;
-			exit(0);
+			_msg = "Error [ line " + std::to_string(_iter) + " ] : print empty stack";
+			throw Exception(_msg.c_str());
 		}
 		else if (_array[_array.size() - 1]->getType() != Int8) {
-			std::cout << "Error [ line " << _iter << " ] : print empty stack" << std::endl;
-			exit(0);
+			_msg = "Error [ line " + std::to_string(_iter) + " ] : print wrong arg __must_be_int8__)";
+			throw Exception(_msg.c_str());
 		}
 		else
 			std::cout << static_cast<char>(stoi(_array[_array.size() - 1]->toString())) << std::endl; break;
 	case Exit:
 		exit(0);
 	default:
-		std::cout << "Error [ line " << _iter << " ] : Unknown command '" << _line << "'" << std::endl;
-		exit(0);
+		_msg = "Error [ line " + std::to_string(_iter) + " ] : Unknown command'" + _line + "'";
+		throw Exception(_msg.c_str());
 	}
 	if (_line != "" && std::regex_match(_line, std::regex("\\s*((?=;).*|\\s*)")) ) {
-		std::cout << "Error [ line " << _iter << " ] : Invalid symbols" << std::endl;
-		exit(0);
+		_msg = "Error [ line " + std::to_string(_iter) + " ] : Invalid symbols";
+		throw Exception(_msg.c_str());
 	}
 }
 

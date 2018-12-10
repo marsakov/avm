@@ -6,8 +6,6 @@
 #include "Creator.hpp"
 
 
-class Creator;
-
 template <typename T>
 class Operand  : public IOperand {
 

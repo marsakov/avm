@@ -1,6 +1,7 @@
 #pragma once
 
 #include "IOperand.h"
+#include "Exception.hpp"
 
 class Creator {
 
