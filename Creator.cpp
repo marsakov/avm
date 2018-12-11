@@ -36,7 +36,7 @@ IOperand const * Creator::createInt16( std::string const & value ) const {
 }
 
 IOperand const * Creator::createInt32( std::string const & value ) const {
-    int op;
+    float op;
 
     try {
         op = std::stoi(value);

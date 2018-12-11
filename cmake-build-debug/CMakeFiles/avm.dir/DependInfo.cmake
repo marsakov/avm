@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/msakovych/avm/Creator.cpp" "/home/msakovych/avm/cmake-build-debug/CMakeFiles/avm.dir/Creator.cpp.o"
-  "/home/msakovych/avm/Exception.cpp" "/home/msakovych/avm/cmake-build-debug/CMakeFiles/avm.dir/Exception.cpp.o"
-  "/home/msakovych/avm/Parser.cpp" "/home/msakovych/avm/cmake-build-debug/CMakeFiles/avm.dir/Parser.cpp.o"
-  "/home/msakovych/avm/main.cpp" "/home/msakovych/avm/cmake-build-debug/CMakeFiles/avm.dir/main.cpp.o"
+  "/Users/msakovyc/avm/Creator.cpp" "/Users/msakovyc/avm/cmake-build-debug/CMakeFiles/avm.dir/Creator.cpp.o"
+  "/Users/msakovyc/avm/Exception.cpp" "/Users/msakovyc/avm/cmake-build-debug/CMakeFiles/avm.dir/Exception.cpp.o"
+  "/Users/msakovyc/avm/Parser.cpp" "/Users/msakovyc/avm/cmake-build-debug/CMakeFiles/avm.dir/Parser.cpp.o"
+  "/Users/msakovyc/avm/main.cpp" "/Users/msakovyc/avm/cmake-build-debug/CMakeFiles/avm.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

@@ -17,6 +17,7 @@ class Operand  : public IOperand {
 public:
 
 	Operand(std::string value, eOperandType type);
+	Operand();
 
 	virtual int 					getPrecision( void ) const;
 	virtual eOperandType 			getType( void ) const;
@@ -31,6 +32,9 @@ public:
 	virtual ~Operand( void );
 
 };
+
+template <typename T>
+Operand<T>::Operand(void) {}
 
 template <typename T>
 Operand<T>::Operand(std::string value, eOperandType type) {

@@ -15,8 +15,8 @@ NAME	:= avm
 CC		:= clang++
 FLAGS	:= -Wall -Werror -Wextra
 
-DEPS	:= IOperand.h Operand.hpp Parser.hpp Creator.hpp
-SRCS	:= main.cpp Creator.cpp Parser.cpp
+DEPS	:= IOperand.h Operand.hpp VM.hpp Creator.hpp Exception.hpp
+SRCS	:= main.cpp Creator.cpp VM.cpp Exception.cpp
 OBJS	:= $(SRCS:%.cpp=%.o)
 
 all: $(NAME)

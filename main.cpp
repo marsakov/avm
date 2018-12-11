@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "Operand.hpp"
-#include "Parser.hpp"
+#include "VM.hpp"
 
 
 void	create_file() {
@@ -19,35 +19,23 @@ void	create_file() {
 void	reading_code(std::string file_name) {
 	char line[256];
 	std::ifstream ifs(file_name);
-	Parser parser;
+	VM vm;
 
 	for (int i = 1; ifs.getline(line, 256) && std::string(line) != ";;"; i++)
 	{
 		if (std::string(line) != "" && !std::regex_match(line, std::regex("\\s*;+.*")) ) {
-			parser.setLine(line);
-			parser.setIter(i);
-			parser.parseLine();
+			vm.setLine(line);
+			vm.setIter(i);
+			vm.parseLine();
 		}
 	}
 
+	if (vm.exitInstr == false)
+		throw Exception("Error : Expected exit command");
 }
 
 int		main(int ac, char *av[]) {
-	std::string						file_name = "";
-	std::vector<const IOperand*>	array;
-	Creator							creator;
-
-
-	const IOperand* one = creator.createOperand("1", Int8);
-	array.push_back(one);
-
-	// std::regex rgx("^(push|assert)\\s*(int(8|16|32)|float|double)\\(-?[0-9]+.?[0-9]*\\)\\s*((?=;).*|\\s*)");
-
-	// std::string source = "push    int8(-6.0) ;hgh";
-
-	// if (std::regex_match(source, rgx)) {
-	//     std::cout << source << std::endl;
-	// }
+	std::string		file_name = "";
 
 	if (ac == 1) {
 		create_file();
@@ -60,4 +48,6 @@ int		main(int ac, char *av[]) {
 		exit(1);
 	}
 	reading_code(file_name);
+	system("rm -rf temp_file");
+	return (0);
 }
