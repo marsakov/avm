@@ -1,41 +1,13 @@
 #include "VM.hpp"
 
 VM::VM() {
-	_arrayMatchCmd[0] = std::regex("^(push).*");
-	_arrayMatchCmd[1] = std::regex("^(pop).*");
-	_arrayMatchCmd[2] = std::regex("^(dump).*");
-	_arrayMatchCmd[3] = std::regex("^(assert).*");
-	_arrayMatchCmd[4] = std::regex("^(add).*");
-	_arrayMatchCmd[5] = std::regex("^(sub).*");
-	_arrayMatchCmd[6] = std::regex("^(mul).*");
-	_arrayMatchCmd[7] = std::regex("^(div).*");
-	_arrayMatchCmd[8] = std::regex("^(mod).*");
-	_arrayMatchCmd[9] = std::regex("^(print).*");
-	_arrayMatchCmd[10] = std::regex("^(exit).*");
+	_cmdMatch = std::regex("(push\\s+.*)|(pop.*)|(dump.*)|(assert\\s+.*)|(add.*)|(sub.*)|(mul.*)|(div.*)|(mod.*)|(print.*)|(exit.*)");
+	_cmdReplace = std::regex("(push)|(pop)|(dump)|(assert)|(add)|(sub)|(mul)|(div)|(mod)|(print)|(exit)");
 
-	_arrayReplaceCmd[0] = std::regex("^(push)\\s+");
-	_arrayReplaceCmd[1] = std::regex("^(pop)\\s*");
-	_arrayReplaceCmd[2] = std::regex("^(dump)\\s*");
-	_arrayReplaceCmd[3] = std::regex("^(assert)\\s+");
-	_arrayReplaceCmd[4] = std::regex("^(add)\\s*");
-	_arrayReplaceCmd[5] = std::regex("^(sub)\\s*");
-	_arrayReplaceCmd[6] = std::regex("^(mul)\\s*");
-	_arrayReplaceCmd[7] = std::regex("^(div)\\s*");
-	_arrayReplaceCmd[8] = std::regex("^(mod)\\s*");
-	_arrayReplaceCmd[9] = std::regex("^(print)\\s*");
-	_arrayReplaceCmd[10] = std::regex("^(exit)\\s*");
-
-	_arrayMatchType[0] = std::regex("int8\\([-]?[0-9]+\\).*");
-	_arrayMatchType[1] = std::regex("int16\\([-]?[0-9]+\\).*");
-	_arrayMatchType[2] = std::regex("int32\\([-]?[0-9]+\\).*");
-	_arrayMatchType[3] = std::regex("float\\([-]?[0-9]+\\.[0-9]+\\).*");
-	_arrayMatchType[4] = std::regex("double\\([-]?[0-9]+\\.[0-9]+\\).*");
-
-	_arrayReplaceType[0] = std::regex("^int8\\(");
-	_arrayReplaceType[1] = std::regex("^int16\\(");
-	_arrayReplaceType[2] = std::regex("^int32\\(");
-	_arrayReplaceType[3] = std::regex("^float\\(");
-	_arrayReplaceType[4] = std::regex("^double\\(");
+	_typeMatch = std::regex("(int8\\(.*)|(int16\\(.*)|(int32\\(.*)|(float\\(.*)|(double\\(.*)");
+	_typeReplace = std::regex("(int8\\()|(int16\\()|(int32\\()|(float\\()|(double\\()");
+	
+	_argMatch = std::regex("(\\([-]?[0-9]+\\).*)|(\\([-]?[0-9]+\\.[0-9]+\\).*)");
 
 	exitInstr = false;
 }
@@ -43,23 +15,31 @@ VM::VM() {
 VM::~VM() { }
 
 eOperandType 	VM::getType( void ) {
+	std::cmatch match;
 
-	for (int i = 0; i < 5; i++) {
-		if ( std::regex_match(_line, _arrayMatchType[i] )){
-			_line = regex_replace(_line, _arrayReplaceType[i], "");
-			return (eOperandType(i));
+	_line = std::regex_replace(_line, std::regex("^\\s*"), "");
+	if (std::regex_match(_line.c_str(), match, _typeMatch)) {
+		for (size_t n = 1; n < match.size(); ++n) {
+			if (match[n].matched) {
+				_line = regex_replace(_line, _typeReplace, "");
+				return (eOperandType(n - 1));
+			}
 		}
 	}
-	_msg = "Error [ line " + std::to_string(_iter) + " ] : Wrong argument";
+	_msg = "Error [ line " + std::to_string(_iter) + " ] : Wrong argument type. Use {int8, int16, int32, float, double}";
 	throw Exception(_msg.c_str());
 }
 
-eCommandType 	VM::getCommand( void ) {
 
-	for (int i = 0; i < 11; i++) {
-		if ( std::regex_match(_line, _arrayMatchCmd[i] )){
-			_line = regex_replace(_line, _arrayReplaceCmd[i], "");
-			return (eCommandType (i));
+eCommandType 	VM::getCommand( void ) {
+	std::cmatch match;
+
+	if (std::regex_match(_line.c_str(), match, _cmdMatch)) {
+		for (size_t n = 1; n < match.size(); ++n) {
+			if (match[n].matched) {
+				_line = regex_replace(_line, _cmdReplace, "");
+				return (eCommandType(n - 1));
+			}
 		}
 	}
 	_msg = "Error [ line " + std::to_string(_iter) + " ] : Unknown command'" + _line + "'";
@@ -146,7 +126,7 @@ void			VM::mathOp(eCommandType cmdType) {
 	}
 }
 
-void			VM::parseLine() {
+void			VM::checkLine() {
 	eCommandType cmdType;
 	
 	cmdType = getCommand();
@@ -202,7 +182,7 @@ void			VM::parseLine() {
 }
 
 void		VM::setLine(std::string line) {
-	_line = line;
+	_line = std::regex_replace(line, std::regex("^\\s*"), "");
 }
 
 void		VM::setIter(int i) {

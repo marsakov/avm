@@ -26,7 +26,7 @@ void	reading_code(std::string file_name) {
 		if (std::string(line) != "" && !std::regex_match(line, std::regex("\\s*;+.*")) ) {
 			vm.setLine(line);
 			vm.setIter(i);
-			vm.parseLine();
+			vm.checkLine();
 		}
 	}
 

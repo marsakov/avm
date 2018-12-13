@@ -1,10 +1,10 @@
 ;ds
-push int8(125)                 ;int8(7)
+push int8(1)                 ;int8(7)
 push float(88.5)
-assert float(88,5)
+assert float(88.5)
 push             int32(32)
-push double(44,4)        ;65;
-push float(4,4) ;       ddd
+push double(44.4)        ;65;
+push float(4.4) ;       ddd
 push int8(7)
 push int8(6)
 mod

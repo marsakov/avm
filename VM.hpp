@@ -6,15 +6,19 @@
 
 class VM {
 
+	std::vector<const IOperand*>	_array;
+
+protected:
+
 	int								_iter;
 	Creator 						_creator;
 	std::string						_line;
 	std::string 					_msg;
-	std::vector<const IOperand*>	_array;
-	std::regex						_arrayMatchCmd[11];
-	std::regex						_arrayReplaceCmd[11];
-	std::regex						_arrayMatchType[5];
-	std::regex						_arrayReplaceType[5];
+	std::regex						_cmdMatch;
+	std::regex						_cmdReplace;
+	std::regex						_typeMatch;
+	std::regex						_argMatch;
+	std::regex						_typeReplace;
 
 
 public:
@@ -24,14 +28,17 @@ public:
 	VM( void );
 	~VM( void );
 	
-	void							parseLine( void );
+	void							checkLine( void );
 	void							setLine(std::string line);
 	void							setIter(int i);
 	std::string						getLine( void );
 	eOperandType 					getType( void );
 	eCommandType 					getCommand( void );
 
+private:
+
 	void							pushFunc();
 	void							assertFunc();
 	void							mathOp(eCommandType cmdType);
+
 };
