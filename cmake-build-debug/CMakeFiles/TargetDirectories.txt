@@ -1,3 +1,0 @@
-/Users/msakovyc/avm/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/msakovyc/avm/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/msakovyc/avm/cmake-build-debug/CMakeFiles/avm.dir

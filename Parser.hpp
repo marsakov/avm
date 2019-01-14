@@ -1,14 +1,12 @@
 #pragma once
 
 #include "Exception.hpp"
-#include "IOperand.hpp"
+#include "IOperand.h"
+#include "VM.hpp"
 
 class Parser : public VM {
 
 public:
-
-	Parser( void );
-	~Parser( void );
 	
 	void			checkLine( void );
 

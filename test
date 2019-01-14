@@ -1,14 +1,17 @@
-;ds
-push int8(1)                 ;int8(7)
-push float(88.5)
-assert float(88.5)
+push int8(-18)                 ;int8(7)
+push int8(-100)
+add
+push float(88.499999999999999999)
 push             int32(32)
 push double(44.4)        ;65;
-push float(4.4) ;       ddd
-push int8(7)
+push float(44.6); ;       ddd
+push int8(8)
 push int8(6)
-mod
-sub
+push int8(6)
+sqr
 dump
+size
+max
+min
 exit
 ;;

@@ -17,7 +17,12 @@ enum eCommandType
 	Div,
 	mod,
 	print,
-	Exit
+	Exit,
+	Max,
+	Min,
+	clear,
+	sqr,
+	size
 };
 
 enum eOperandType
